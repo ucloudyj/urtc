@@ -173,6 +173,18 @@ public interface UcloudRTCDataProvider {
 ```
 ## ** iOS **
 
+实时音视频应用中，通常会使用默认的音视频采集模块，在部分场景中，需要自定义视频采集。
+默认内置的摄像头作为视频输入设备，将采集的视频推流。 如果需要自定义视频源进行推流，请将enableExtendVideoCapture设置为YES， 再将自定义的视频源发送给 UCloudRtcEngine。
+```objc
+
+/**
+ *@brief 上传自定义视频
+ *@param pixelBuffer 每帧图片信息
+ *@param timestamp 每帧对应的时间
+ *@param rotation 旋转方向
+*/
+- (void)publishPixelBuffer:(CVPixelBufferRef _Nonnull)pixelBuffer timestamp:(CMTime)timestamp rotation:(UCloudRtcVideoRotation)rotation;
+```
 
 ### 开发注意事项
 
